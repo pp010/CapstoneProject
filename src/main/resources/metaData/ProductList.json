@@ -1,0 +1,24 @@
+{
+  "ProductList": [
+    {
+      "productId": "1001",
+      "productName": "Iphone 6s",
+      "Quantity": "5"
+    },
+    {
+      "productId": "1002",
+      "productName": "Iphone 7s",
+      "Quantity": "5"
+    },
+    {
+      "productId": "1003",
+      "productName": "Samsung Galaxy",
+      "Quantity": "5"
+    },
+    {
+      "productId": "1004",
+      "productName": "Moto g",
+      "Quantity": "5"
+    }
+  ]
+}
