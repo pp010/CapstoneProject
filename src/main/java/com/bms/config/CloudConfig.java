@@ -8,15 +8,11 @@ import org.springframework.data.mongodb.MongoDbFactory;
 
 import com.bms.utils.Utils;
 
-import com.google.gson.JsonObject;
-import com.mongodb.MongoClient;
-import com.mongodb.MongoClientURI;
-import com.mongodb.client.MongoDatabase;
-
 @Configuration
-
 public class CloudConfig extends AbstractCloudConfig {
-	private MongoClient mongoClient;
+	
+	
+	//private MongoClient mongoClient;
 	@Autowired
 	private Utils utils;
 
@@ -25,15 +21,14 @@ public class CloudConfig extends AbstractCloudConfig {
 		return connectionFactory().mongoDbFactory();
 	}
 
-	@Bean
+	/*@Bean
 	public MongoDatabase mongoDatabase() {
 
 		String uri = null;
-		JsonObject cloudConfig = utils
-				.getCredentials(System.getenv(utils.getMongoVcapServiceName(System.getenv("VCAP_SERVICES"))));
+		JsonObject cloudConfig = utils.getCredentials("mlab");
 		uri = cloudConfig.get("uri").getAsString();
 		mongoClient = new MongoClient(new MongoClientURI(uri));
 		String databaseName = uri.substring(uri.lastIndexOf("/") + 1, uri.length());
 		return mongoClient.getDatabase(databaseName);
-	}
+	}*/
 }

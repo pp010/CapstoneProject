@@ -1,4 +1,4 @@
-package com.bms.dao;
+/*package com.bms.dao;
 
 import java.io.File;
 import java.io.IOException;
@@ -15,6 +15,7 @@ import org.bson.Document;
 
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.MongoDbFactory;
 import org.springframework.stereotype.Component;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -23,15 +24,15 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
 
-/**
+*//**
  * @author 540491
  *
- */
+ *//*
 @Component
 public class MongoDbMetaDataDAO {
 
 	@Autowired
-	private MongoDatabase mongoDb;
+	private MongoDbFactory mongoDb;
 
 	@PostConstruct
 	public void initializeDB() throws JsonParseException, JsonMappingException, IOException, ParseException {
@@ -41,16 +42,16 @@ public class MongoDbMetaDataDAO {
 		;
 	}
 
-	/**
+	*//**
 	 * method to insert the collections data in mongoDB
 	 * 
 	 * @throws IOException
 	 * @throws JsonMappingException
 	 * @throws JsonParseException
-	 */
+	 *//*
 	public void insertCollections() throws JsonParseException, JsonMappingException, IOException {
 
-		MongoCollection<Document> collection = mongoDb.getCollection("ProductList");
+		MongoCollection<Document> collection = ((MongoDatabase) mongoDb).getCollection("ProductList");
 		List<Document> documents = getData("ProductList");
 		collection.insertMany(documents);
 
@@ -74,11 +75,11 @@ public class MongoDbMetaDataDAO {
 		return documentList;
 	}
 
-	/**
+	*//**
 	 * method to check whether the record exists in mongoDB
-	 */
+	 *//*
 	public boolean isRecordExists() {
-		MongoCollection<Document> collection = mongoDb.getCollection("ProductList");
+		MongoCollection<Document> collection = ((MongoDatabase) mongoDb).getCollection("ProductList");
 		if (collection.count() > 0) {
 			return true;
 		} else {
@@ -86,4 +87,4 @@ public class MongoDbMetaDataDAO {
 		}
 	}
 
-}
+}*/

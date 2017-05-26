@@ -6,15 +6,13 @@ import org.springframework.amqp.core.MessageProperties;
 import org.springframework.amqp.core.Queue;
 import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 /** This class is for publishing the messages via RabbitMQ
  * @author 540497
  *
  */
-@Configuration
+@Component
 public class RabbitMQMessagePublisher {
 
 	@Autowired
@@ -28,7 +26,6 @@ public class RabbitMQMessagePublisher {
 	 * unique id
 	 * */
 	
-	@Bean
 	public void publishMessage(String messageContent, String requestGuid) {
 		MessageProperties messageProperties = new MessageProperties();
 		messageProperties.setCorrelationIdString(requestGuid);

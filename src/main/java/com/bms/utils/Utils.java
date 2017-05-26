@@ -47,14 +47,14 @@ public class Utils {
 		return serviceName;
 
 	}
-	public String getMongoVcapServiceName(String vcap_service) {
+	/*public String getMongoVcapServiceName(String vcap_service) {
 		JSONParser jsonParser = new JSONParser();
 		JSONObject bluePrintObject;
 		String serviceName = null;
 		try {
 			bluePrintObject = (JSONObject) jsonParser.parse(vcap_service);
 			for (Object key : bluePrintObject.keySet()) {
-				if (key.toString().toLowerCase().contains("mongo")) {
+				if (key.toString().toLowerCase().contains("mlab")) {
 					JSONArray obj = (JSONArray) bluePrintObject.get(key.toString());
 					JSONObject object = (JSONObject) obj.get(0);
 					serviceName = (String) object.get("name");
@@ -68,7 +68,7 @@ public class Utils {
 		return serviceName;
 
 	}
-	/** Method to get the app name from environment variables
+*/	/** Method to get the app name from environment variables
 	 * 
 	 * @param vcap_app
 	 * @return

@@ -1,7 +1,10 @@
 package com.bms.service;
 
+import java.util.List;
+
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,57 +18,49 @@ public class StockService {
 	@Autowired
 	private JpaProductList jpaProductList;
 
-	public JSONObject getList() {
-		return (JSONObject) jpaProductList.findAll();
+	public List<ProductList> getList() {
+		return jpaProductList.findAll();
 	}
 
-	public JSONObject insertList(String input) {
+	public List<ProductList> insertList(String input) throws ParseException {
 
-		try {
-			Object obj = new JSONParser().parse(input);
-			JSONObject json = (JSONObject) obj;
-			
-			System.out.println("INSERT PROCESS");
-			
-			jpaProductList.insert(new ProductList((String) json.get("productId"), (String) json.get("productName"),
-					(String) json.get("Quantity")));
-			return (JSONObject) jpaProductList.findAll();
-		} catch (Exception e) {
-			return (JSONObject) new JSONObject().put("Error", "Insert Failed");
-		}
+		Object obj = new JSONParser().parse(input);
+		JSONObject json = (JSONObject) obj;
+
+		System.out.println("INSERT PROCESS");
+
+		jpaProductList.insert(new ProductList((String) json.get("productId"), (String) json.get("productName"),
+				(String) json.get("Quantity")));
+		return jpaProductList.findAll();
 	}
 
-	public JSONObject updateList(String id, String input) {
+	public ProductList updateList(String id, String input) throws ParseException {
 
-		try {
-			ProductList productList = jpaProductList.findOne(id);
-			
-			System.out.println(productList);
-			
-			Object obj = new JSONParser().parse(input);
-			JSONObject json = (JSONObject) obj;
-			productList.setQuantity((String) json.get("Quantity"));
-			
-			System.out.println(productList);
-			
-			jpaProductList.save(productList);
-			productList = jpaProductList.findOne(id);
-			
-			System.out.println(productList);
-			
-			json.put("id", productList.getId());
-			json.put("productId", productList.getProductId());
-			json.put("productName", productList.getProductName());
-			json.put("Quantity", productList.getQuantity());
-			return json;
-		} catch (Exception e) {
-			return (JSONObject) new JSONObject().put("Error", "Update Failed");
-		}
+		ProductList productList = jpaProductList.findOne(id);
+
+		System.out.println(productList);
+
+		Object obj = new JSONParser().parse(input);
+		JSONObject json = (JSONObject) obj;
+		productList.setQuantity((String) json.get("Quantity"));
+
+		System.out.println(productList);
+
+		jpaProductList.save(productList);
+		productList = jpaProductList.findOne(id);
+
+		System.out.println(productList);
+		
+		return productList;
 	}
 
 	public JSONObject deleteList(String id) {
 		jpaProductList.delete(id);
-		return (JSONObject) new JSONObject().put(id.toString(), "Delete Success");
+		
+		JSONObject obj = new JSONObject();
+		obj.put(id.toString(), "Delete Success");
+		
+		return obj;
 	}
 
 }
