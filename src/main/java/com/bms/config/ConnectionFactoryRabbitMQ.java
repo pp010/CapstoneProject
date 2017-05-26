@@ -27,7 +27,6 @@ import com.bms.utils.Utils;
  *
  */
 @Configuration
-@Component
 public class ConnectionFactoryRabbitMQ {
 
 	@Autowired

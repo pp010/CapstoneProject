@@ -3,12 +3,15 @@ package com.bms.utils;
 import org.springframework.amqp.core.Message;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
+import org.springframework.stereotype.Component;
+
 import com.bms.domain.SimpleMailMessageVO;
 import com.bms.domain.Status;
 import com.bms.service.EmailService;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
 
+@Component
 public class ListenAndTriggerMail {
 	
 	@Autowired
