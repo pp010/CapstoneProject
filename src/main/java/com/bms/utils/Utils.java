@@ -47,7 +47,27 @@ public class Utils {
 		return serviceName;
 
 	}
+	public String getMongoVcapServiceName(String vcap_service) {
+		JSONParser jsonParser = new JSONParser();
+		JSONObject bluePrintObject;
+		String serviceName = null;
+		try {
+			bluePrintObject = (JSONObject) jsonParser.parse(vcap_service);
+			for (Object key : bluePrintObject.keySet()) {
+				if (key.toString().toLowerCase().contains("mongo")) {
+					JSONArray obj = (JSONArray) bluePrintObject.get(key.toString());
+					JSONObject object = (JSONObject) obj.get(0);
+					serviceName = (String) object.get("name");
+				}
 
+			}
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return serviceName;
+
+	}
 	/** Method to get the app name from environment variables
 	 * 
 	 * @param vcap_app
