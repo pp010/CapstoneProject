@@ -11,8 +11,7 @@ import com.bms.utils.Utils;
 @Configuration
 public class CloudConfig extends AbstractCloudConfig {
 	
-	
-	//private MongoClient mongoClient;
+
 	@Autowired
 	private Utils utils;
 
