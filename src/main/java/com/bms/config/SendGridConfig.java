@@ -15,7 +15,6 @@ public class SendGridConfig {
 	@Autowired
 	private Utils utils;
 	
-	
 	@Bean
 	public MailSender mailSender() {
 		JsonObject cloudConfig = utils.getCredentials("sendgrid");

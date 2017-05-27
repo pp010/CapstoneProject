@@ -3,26 +3,16 @@ package com.bms.domain;
 import org.springframework.data.annotation.Id;
 
 public class BidList {
+	
 	@Id
 	private String id;
 	private String biddingPrice;
 	private String emailId;
 	private String productName;
 	private String productId;
+	private String bidId;
 
 	public BidList() {
-	}
-
-	/**
-	 * @param title
-	 * @param artist
-	 * @param releaseYear
-	 */
-	public BidList(String biddingPrice, String emailId, String productName, String productId) {
-		this.biddingPrice = biddingPrice;
-		this.emailId = emailId;
-		this.productName = productName;
-		this.productId = productId;
 	}
 
 	public String getId() {
@@ -65,10 +55,30 @@ public class BidList {
 		this.productId = productId;
 	}
 
+	public String getBidId() {
+		return bidId;
+	}
+
+	public void setBidId(String bidId) {
+		this.bidId = bidId;
+	}
+
+
+	public BidList(String biddingPrice, String emailId, String productName, String productId, String bidId) {
+		super();
+		this.biddingPrice = biddingPrice;
+		this.emailId = emailId;
+		this.productName = productName;
+		this.productId = productId;
+		this.bidId = bidId;
+	}
+
 	@Override
 	public String toString() {
 		return "BidList [id=" + id + ", biddingPrice=" + biddingPrice + ", emailId=" + emailId + ", productName="
-				+ productName + ", productId=" + productId + "]";
+				+ productName + ", productId=" + productId + ", bidId=" + bidId + "]";
 	}
-
+	
+	
+	
 }
