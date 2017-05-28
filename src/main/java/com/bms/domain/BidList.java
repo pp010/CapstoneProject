@@ -8,8 +8,7 @@ public class BidList {
 	private String id;
 	private String biddingPrice;
 	private String emailId;
-	private String productName;
-	private String productId;
+	private String date;
 	private String bidId;
 
 	public BidList() {
@@ -39,22 +38,6 @@ public class BidList {
 		this.emailId = emailId;
 	}
 
-	public String getProductName() {
-		return productName;
-	}
-
-	public void setProductName(String productName) {
-		this.productName = productName;
-	}
-
-	public String getProductId() {
-		return productId;
-	}
-
-	public void setProductId(String productId) {
-		this.productId = productId;
-	}
-
 	public String getBidId() {
 		return bidId;
 	}
@@ -63,20 +46,26 @@ public class BidList {
 		this.bidId = bidId;
 	}
 
+	public String getDate() {
+		return date;
+	}
 
-	public BidList(String biddingPrice, String emailId, String productName, String productId, String bidId) {
+	public void setDate(String date) {
+		this.date = date;
+	}
+
+	public BidList(String biddingPrice, String emailId, String date, String bidId) {
 		super();
 		this.biddingPrice = biddingPrice;
 		this.emailId = emailId;
-		this.productName = productName;
-		this.productId = productId;
+		this.date = date;
 		this.bidId = bidId;
 	}
 
 	@Override
 	public String toString() {
-		return "BidList [id=" + id + ", biddingPrice=" + biddingPrice + ", emailId=" + emailId + ", productName="
-				+ productName + ", productId=" + productId + ", bidId=" + bidId + "]";
+		return "BidList [id=" + id + ", biddingPrice=" + biddingPrice + ", emailId=" + emailId + ", date=" + date
+				+ ", bidId=" + bidId + "]";
 	}
 	
 	

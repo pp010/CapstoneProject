@@ -36,8 +36,6 @@ public class MongoDbMetaDataDAO {
 	@PostConstruct
 	public void initializeDB() throws JsonParseException, JsonMappingException, IOException, ParseException {
 		if (!isRecordExists()) {
-			System.out.println(
-					"======================================================================================================================initializeDB");
 			insertCollections();
 		}
 		;
@@ -53,12 +51,8 @@ public class MongoDbMetaDataDAO {
 	 */
 	public void insertCollections() throws JsonParseException, JsonMappingException, IOException, ParseException {
 
-		System.out.println(
-				"======================================================================================================================insertCollections");
 		List<ProductList> documents = getData("ProductList");
 		for (ProductList pl : documents) {
-			System.out.println(
-					"===================================================================================" + pl);
 			jpaProductList.insert(pl);
 		}
 	}
@@ -68,33 +62,15 @@ public class MongoDbMetaDataDAO {
 		StringBuffer path = new StringBuffer();
 		path.append("/metaData/").append("ProductList").append(".json");
 		String content = FileUtils.readFileToString(new File(this.getClass().getResource(path.toString()).getFile()));
-		System.out.println("==============================================================" + content);
-
-		/*
-		 * Map<String, Object> result = new ObjectMapper().readValue(content,
-		 * HashMap.class); System.out.println(
-		 * "=============================================================="
-		 * +result); List<Map<String, Object>> list = (List<Map<String,
-		 * Object>>) result.get(collectionName);
-		 * 
-		 * List<ProductList> documentList = new ArrayList<ProductList>();
-		 * 
-		 * for (Map<String, Object> obj : list) { documentList.add((ProductList)
-		 * obj); }
-		 */
 
 		List<ProductList> list = new ArrayList<>();
 		JSONObject jsnobject = (JSONObject) new JSONParser().parse(content);
-		System.out.println("==============================================================" + jsnobject.toString());
 		JSONArray jsonArray = (JSONArray) jsnobject.get("ProductList");
-		System.out.println("==============================================================" + jsonArray.toString());
 		for (Object obj : jsonArray) {
 			JSONObject json = (JSONObject) obj;
-			System.out.println("==============================================================" + json);
 			list.add(new ProductList((String) json.get("productId"), (String) json.get("productName"),
 					(String) json.get("Quantity")));
 		}
-		System.out.println("==============================================================" + list);
 		return list;
 
 	}
@@ -104,14 +80,7 @@ public class MongoDbMetaDataDAO {
 	 */
 	public boolean isRecordExists() {
 
-		System.out.println(
-				"======================================================================================================================isRecordExists");
-
 		if (jpaProductList.count() > 0) {
-
-			System.out.println(
-					"======================================================================================================================true");
-
 			return true;
 		} else {
 			return false;

@@ -14,6 +14,7 @@ import com.bms.domain.BidList;
 import com.bms.domain.CreateBidList;
 import com.bms.repostiries.JpaBidList;
 import com.bms.repostiries.JpaCreateBidList;
+import com.bms.scheduler.Scheduler;
 
 @Service
 public class BidService {
@@ -23,6 +24,9 @@ public class BidService {
 
 	@Autowired
 	JpaCreateBidList jpaCreateBidList;
+
+	@Autowired
+	Scheduler scheduler;
 
 	public List<CreateBidList> getList() {
 		return jpaCreateBidList.findAll();
@@ -38,7 +42,7 @@ public class BidService {
 		Date startDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(createBidList.getStartDate());
 		Date endDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(createBidList.getEndDate());
 
-		Date currentDate = new Date();
+		Date currentDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse((String) json.get("date"));
 
 		JSONObject status = new JSONObject();
 
@@ -48,12 +52,12 @@ public class BidService {
 				status.put("issue", "Bidding price can not be less than base bid price");
 			} else {
 				jpaBidList.insert(new BidList((String) json.get("biddingPrice"), (String) json.get("emailId"),
-						(String) json.get("productName"), (String) json.get("productId"), (String) json.get("bidId")));
+						(String) json.get("date"), (String) json.get("bidId")));
 				status.put("status", "success");
 			}
 		} else {
 			status.put("status", "Bidding Failed");
-			status.put("issue", "Bidding time over");
+			status.put("issue", "Please check Bidding time");
 		}
 
 		return status;
