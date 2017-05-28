@@ -1,6 +1,5 @@
 package com.bms.scheduler;
 
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -44,7 +43,7 @@ public class Scheduler {
 				for (BidList bidList : bidLists) {
 					if (bidList.getBidId().equalsIgnoreCase(createBidList.getId())) {
 						successBids.add(bidList);
-						jpaBidList.delete(bidList.getBidId());
+						jpaBidList.delete(bidList.getId());
 					}
 				}
 				Collections.sort(successBids, new BidPriceComparator());

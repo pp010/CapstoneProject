@@ -1,17 +1,17 @@
 package com.bms;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
 
-import org.json.simple.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import com.bms.bidPriceComparator.BidPriceComparator;
 import com.bms.domain.BidList;
-import com.bms.domain.CreateBidList;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -23,7 +23,7 @@ public class BmsApplicationTests {
 
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) throws ParseException {
-		JSONObject json = new JSONObject();
+		/*JSONObject json = new JSONObject();
 		json.put("date", "28/05/2017 20:00:00");
 		CreateBidList createBidList = new CreateBidList("28/05/2017 18:00:00", "28/05/2017 21:00:00", "", "", "50000");
 
@@ -38,7 +38,7 @@ public class BmsApplicationTests {
 			System.out.println(endDate);
 		} else {
 			// "Bidding closed";
-		}
+		}*/
 		
 		/*CreateBidList createBidList = new CreateBidList("27/05/2017 00:00:00", "28/05/2017 00:00:00", "", "", "50000");
 		JSONObject json = new JSONObject();
@@ -46,6 +46,25 @@ public class BmsApplicationTests {
 		if (Integer.valueOf(createBidList.getbidBasePrice()) < Integer.valueOf((String) json.get("biddingPrice"))) {
 			System.out.println("");
 		}*/
+		
+		BidList b1 = new BidList("51000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
+		BidList b2 = new BidList("78000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
+		BidList b3 = new BidList("90000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
+		BidList b4 = new BidList("54000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
+		BidList b5 = new BidList("23000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
+		
+		List<BidList> bl = new ArrayList<>();
+		bl.add(b1);
+		bl.add(b2);
+		bl.add(b3);
+		bl.add(b4);
+		bl.add(b5);
+		
+		Collections.sort(bl, new BidPriceComparator());
+		
+		for(BidList b : bl) {
+			System.out.println(b);
+		}
 	}
 
 }

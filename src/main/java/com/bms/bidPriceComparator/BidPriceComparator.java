@@ -10,14 +10,10 @@ import com.bms.domain.BidList;
 public class BidPriceComparator implements Comparator<BidList> {
 
 	@Override
-	public int compare(BidList bid1, BidList bid2) {
-
-		int bidPriceOfBid1 = Integer.valueOf(bid1.getBiddingPrice());
-		int bidPriceOfBid2 = Integer.valueOf(bid2.getBiddingPrice());
-
-		if (bidPriceOfBid1 == bidPriceOfBid2)
+	public int compare(BidList o1, BidList o2) {
+		if (Integer.valueOf(o1.getBiddingPrice()) == Integer.valueOf(o2.getBiddingPrice()))
 			return 0;
-		else if (bidPriceOfBid1 == bidPriceOfBid2)
+		else if (Integer.valueOf(o1.getBiddingPrice()) < Integer.valueOf(o2.getBiddingPrice()))
 			return 1;
 		else
 			return -1;
