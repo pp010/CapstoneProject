@@ -54,6 +54,9 @@ public class Scheduler {
 			}
 		}
 
+		createdBidList.clear();
+		bidLists.clear();
+
 	}
 
 }
