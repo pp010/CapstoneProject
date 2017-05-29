@@ -6,7 +6,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
-import java.util.Random;
 import java.util.TimeZone;
 import java.util.UUID;
 
@@ -38,6 +37,7 @@ public class Scheduler {
 	@Autowired
 	RabbitMQMessageListener rabbitMQMessageListener;
 
+	@SuppressWarnings("unchecked")
 	@Scheduled(fixedDelayString = "${db_check}")
 	public void scheduler() throws ParseException {
 
