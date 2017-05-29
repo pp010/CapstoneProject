@@ -6,13 +6,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 import java.util.List;
+import java.util.Random;
 import java.util.TimeZone;
+import java.util.UUID;
 
+import org.json.simple.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 import com.bms.bidPriceComparator.BidPriceComparator;
+import com.bms.config.RabbitMQMessageListener;
+import com.bms.config.RabbitMQMessagePublisher;
 import com.bms.domain.BidList;
 import com.bms.domain.CreateBidList;
 import com.bms.repostiries.JpaBidList;
@@ -26,6 +31,12 @@ public class Scheduler {
 
 	@Autowired
 	JpaCreateBidList jpaCreateBidList;
+
+	@Autowired
+	RabbitMQMessagePublisher rabbitMQMessagePublisher;
+
+	@Autowired
+	RabbitMQMessageListener rabbitMQMessageListener;
 
 	@Scheduled(fixedDelayString = "${db_check}")
 	public void scheduler() throws ParseException {
@@ -46,7 +57,17 @@ public class Scheduler {
 						jpaBidList.delete(bidList.getId());
 					}
 				}
-				Collections.sort(successBids, new BidPriceComparator());
+
+				BidList maxBidPrice = Collections.max(successBids, new BidPriceComparator());
+				for (BidList obj : successBids) {
+					if (maxBidPrice.getBiddingPrice().equalsIgnoreCase(obj.getBiddingPrice())) {
+						JSONObject message = new JSONObject();
+						message.put("emailID", obj.getEmailId());
+						message.put("message", "Congratulations. You got the highest bid.");
+						UUID requestID = UUID.randomUUID();
+						rabbitMQMessagePublisher.publishMessage(message.toJSONString(), requestID.toString());
+					}
+				}
 				for (BidList bl : successBids) {
 					System.out.println("*****" + bl + "*****");
 				}

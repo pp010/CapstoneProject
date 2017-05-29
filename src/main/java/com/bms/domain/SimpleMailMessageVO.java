@@ -18,9 +18,9 @@ public class SimpleMailMessageVO {
 				+ ", getSubject()=" + getSubject() + ", getText()=" + getText() + ", getfooter()=" + getfooter() + "]";
 	}
 
-	private String from = "BlueprintTeam@cognizant.com";
+	private String from = "BMS@cognizant.com";
 	private String[] to;
-	private String subject = " Event updates of the sample app ";
+	private String subject = " Congratulations ";
 	private String text;
 	private String footer = System.getProperty("line.separator") + System.getProperty("line.separator")
 			+ System.getProperty("line.separator") + System.getProperty("line.separator")
