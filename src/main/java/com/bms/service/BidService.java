@@ -28,12 +28,8 @@ public class BidService {
 	@Autowired
 	Scheduler scheduler;
 
-	public List<CreateBidList> getList() {
-		return jpaCreateBidList.findAll();
-	}
-
 	@SuppressWarnings("unchecked")
-	public JSONObject bidItem(String input) throws ParseException, java.text.ParseException {
+	public JSONObject bidItem(String input, Date currentDate) throws ParseException, java.text.ParseException {
 
 		Object obj = new JSONParser().parse(input);
 		JSONObject json = (JSONObject) obj;
@@ -41,8 +37,6 @@ public class BidService {
 		CreateBidList createBidList = jpaCreateBidList.findOne((String) json.get("bidId"));
 		Date startDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(createBidList.getStartDate());
 		Date endDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse(createBidList.getEndDate());
-
-		Date currentDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse((String) json.get("date"));
 
 		JSONObject status = new JSONObject();
 
