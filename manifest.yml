@@ -9,5 +9,6 @@ applications:
   - bmsSendgrid
   - bmsConfigServer
   - bmsServiceRegistry
+  - bmsCircuitBreaker
   env:
     SPRING_PROFILES_ACTIVE: DEV
