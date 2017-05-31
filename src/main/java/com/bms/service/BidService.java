@@ -46,7 +46,7 @@ public class BidService {
 				status.put("issue", "Bidding price can not be less than base bid price");
 			} else {
 				jpaBidList.insert(new BidList((String) json.get("biddingPrice"), (String) json.get("emailId"),
-						(String) json.get("date"), (String) json.get("bidId")));
+						(String) json.get("bidId")));
 				status.put("status", "success");
 			}
 		} else {
