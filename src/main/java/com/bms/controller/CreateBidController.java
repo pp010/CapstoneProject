@@ -1,10 +1,14 @@
 package com.bms.controller;
 
+import java.io.UnsupportedEncodingException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
 
 import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -24,13 +28,21 @@ public class CreateBidController {
 	@Autowired
 	CreateBidService createBidService;
 
+	@SuppressWarnings("unchecked")
 	@RequestMapping(value = "/open", method = RequestMethod.POST)
-	public JSONObject openBid(@RequestBody String input) throws ParseException, java.text.ParseException {
+	public JSONObject openBid(@RequestBody String input) throws ParseException, java.text.ParseException, InvalidKeyException, NoSuchAlgorithmException, UnsupportedEncodingException {
 
 		TimeZone.setDefault(TimeZone.getTimeZone("IST"));
 		Date date = new Date();
-
-		return createBidService.openBid(input, date);
+		JSONObject inputJSON = (JSONObject) new JSONParser().parse(input);
+		JSONObject output =new JSONObject();
+		if(inputJSON.containsKey("hashcode")){
+			output = createBidService.openBid(input, date);
+		}
+		else{
+			output.put("info", "This API is reserved for admin. Kindly provide valid inputs");
+		}
+		return output;
 	}
 
 	@RequestMapping(value = "/bidList", method = RequestMethod.GET)

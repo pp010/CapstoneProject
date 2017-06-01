@@ -38,6 +38,11 @@ public class MongoDbMetaDataDAO {
 		if (!isRecordExists()) {
 			insertCollections();
 		}
+		else{
+			jpaProductList.deleteAll();
+			insertCollections();
+			
+		}
 		;
 	}
 
