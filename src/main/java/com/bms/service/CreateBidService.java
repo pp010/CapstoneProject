@@ -15,6 +15,8 @@ import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
 import com.bms.domain.CreateBidList;
@@ -25,6 +27,9 @@ public class CreateBidService {
 
 	@Autowired
 	private JpaCreateBidList jpaCreateBidList;
+	
+	@Value("${secret_api_key}")
+	private String apiKey;
 
 	@SuppressWarnings("unchecked")
 	public JSONObject openBid(String input, Date date) throws ParseException, java.text.ParseException,
@@ -37,7 +42,6 @@ public class CreateBidService {
 		Date endDate = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss").parse((String) json.get("endDate"));
 
 		JSONObject status = new JSONObject();
-		String apiKey = "${secret.api.key}";
 		String bodyForHMAC = apiKey + json.get("timestamp").toString() + json.get("nonce").toString();
 		String hashCode = generateHMAC(bodyForHMAC, apiKey);
 		if (json.get("hashcode").toString().equalsIgnoreCase(hashCode)) {
