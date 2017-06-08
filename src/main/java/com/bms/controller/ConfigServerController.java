@@ -19,11 +19,11 @@ public class ConfigServerController {
 
 	@RequestMapping(value = "/dbcheck", method = RequestMethod.GET)
 	public String getDataDbCheck() {
-		return String.format("configServer Value is: %s", db_check);
+		return String.format("configServer Value for db_check is: %s", db_check);
 	}
 
 	@RequestMapping(value = "/apicheck", method = RequestMethod.GET)
 	public String getDataApiKey() {
-		return String.format("configServer Value is: %s", secret_api_key);
+		return String.format("configServer Value for secret_api_key is: %s", secret_api_key);
 	}
 }
