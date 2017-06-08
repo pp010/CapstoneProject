@@ -15,8 +15,8 @@ public class CircuitBreakerController {
 	CircuitBreakerService circuitBreakerService;
 
 	@RequestMapping(value = "/breaker", method = RequestMethod.GET)
-	public void circuitBreaker() {
-		circuitBreakerService.getGuide();
+	public String circuitBreaker() {
+		return circuitBreakerService.getGuide();
 	}
 
 	

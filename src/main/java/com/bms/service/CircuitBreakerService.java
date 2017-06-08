@@ -16,15 +16,12 @@ public class CircuitBreakerService {
 	@HystrixCommand(fallbackMethod = "getBackupGuide", commandProperties = {
 			@HystrixProperty(name = "circuitBreaker.requestVolumeThreshold", value = "5"),
 			@HystrixProperty(name = "circuitBreaker.sleepWindowInMilliseconds", value = "10") })
-	public void getGuide() {
-		System.out.println("<inside getGuid>");
-		restTemplate.getForObject("http://microservice1.cognizantone.org/", String.class);
-		restTemplate.getForObject("http://microservice2.cognizantone.org/", String.class);
-		restTemplate.getForObject("http://microservice3.cognizantone.org/", String.class);
+	public String getGuide() {
+		return "<inside getGuid>";
 	}
 
-	public void getBackupGuide() {
-		System.out.println("<inside getbackupGuide>");
+	public String getBackupGuide() {
+		return "<inside getbackupGuide>";
 	}
 	
 }
