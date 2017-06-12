@@ -68,9 +68,7 @@ public class Scheduler {
 						rabbitMQMessagePublisher.publishMessage(message.toJSONString(), requestID.toString());
 					}
 				}
-				for (BidList bl : successBids) {
-					System.out.println("*****" + bl + "*****");
-				}
+				
 				jpaCreateBidList.delete(createBidList.getId());
 			}
 		}

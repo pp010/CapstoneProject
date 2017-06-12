@@ -47,11 +47,11 @@ public class BmsApplicationTests {
 			System.out.println("");
 		}*/
 		
-	/*	BidList b1 = new BidList("51000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
-		BidList b2 = new BidList("78000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
-		BidList b3 = new BidList("90000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
-		BidList b4 = new BidList("54000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
-		BidList b5 = new BidList("90000","abd","28/05/2017 21:10:00","592aee88d2218800127b1432");
+		BidList b1 = new BidList("51000","abd","28/05/2017 21:10:00");
+		BidList b2 = new BidList("78000","abd","28/05/2017 21:10:00");
+		BidList b3 = new BidList("90000","abd","28/05/2017 21:10:00");
+		BidList b4 = new BidList("54000","abd","28/05/2017 21:10:00");
+		BidList b5 = new BidList("90000","abd","28/05/2017 21:10:00");
 		
 		List<BidList> bl = new ArrayList<>();
 		bl.add(b1);
@@ -60,12 +60,13 @@ public class BmsApplicationTests {
 		bl.add(b4);
 		bl.add(b5);
 		
-		//System.out.println(Collections.max(bl, new BidPriceComparator()));
+		System.out.println(Collections.max(bl, new BidPriceComparator()));
+		
 		Collections.sort(bl, new BidPriceComparator());
 		
 		for(BidList b : bl) {
 			System.out.println(b);
-		}*/
+		}
 	}
 
 }
