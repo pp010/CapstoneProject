@@ -5,7 +5,8 @@ echo "cloning done"
 ls
 cd resource-app
 ls
-cd CapstoneProject
+cd ppTest
+pwd
 #cd resource-app/CapstoneProject
 echo "inside resource-app/CapstoneProject"
 #mvn install
@@ -13,4 +14,3 @@ echo "inside resource-app/CapstoneProject"
 mvn clean install -e -DskipTests=true || ErrorHandler "Build Failed for test"
 echo "------installation done---------"
 #mvn test
-echo "------testing done------"
