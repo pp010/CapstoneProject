@@ -8,4 +8,3 @@ mvn clean install -e -DskipTests=true || ErrorHandler "Build Failed for test"
 echo "------installation done---------"
 #mvn test
 echo "------testing done------"
-cd ..
