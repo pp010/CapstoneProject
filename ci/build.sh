@@ -2,7 +2,12 @@
 #set -e -x
 git clone ppTest resource-app
 echo "cloning done"
-ls
+
+for entry in *
+do
+ echo $entry
+done
+
 cd resource-app
 ls
 cd ppTest
