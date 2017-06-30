@@ -14,5 +14,5 @@ outputs:
   - name: resource-app
   
 run:
- path: chmod -R 777 resource-app/ppTest/ci/build.sh; ./resource-app/ppTest/ci/build.sh
- #args: ["ppTest/ci/build.sh"]
+ path: sh
+ args: ["ppTest/ci/build.sh"]
