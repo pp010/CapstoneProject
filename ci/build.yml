@@ -1,0 +1,18 @@
+platform: linux 
+
+image_resource:
+  type: docker-image
+  source:
+    repository: maven
+    tag: latest
+
+inputs:
+  - name: ppTest
+
+  
+outputs:
+  - name: resource-app
+  
+run:
+ path: sh
+ args: ["ppTest/ci/build.sh"]
