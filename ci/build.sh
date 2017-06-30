@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
-
-set -e -x
+#set -e -x
 #DIR="/tmp/build/"
 #rm -r -- "$DIR"*
 #for entry in `ls $tmp`; do
