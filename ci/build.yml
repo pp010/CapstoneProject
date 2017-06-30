@@ -14,5 +14,5 @@ outputs:
   - name: resource-app
   
 run:
- path: sh
- args: ["ppTest/ci/build.sh"]
+ path: ./ppTest/ci/build.sh
+ #args: ["ppTest/ci/build.sh"]
