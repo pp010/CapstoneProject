@@ -2,7 +2,11 @@
 #set -e -x
 git clone ppTest resource-app
 echo "cloning done"
-cd resource-app/CapstoneProject
+ls
+cd resource-app
+ls
+cd CapstoneProject
+#cd resource-app/CapstoneProject
 echo "inside resource-app/CapstoneProject"
 #mvn install
 #mvn install -DskipTests=false
