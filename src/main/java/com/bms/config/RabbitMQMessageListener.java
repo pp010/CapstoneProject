@@ -8,16 +8,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.bms.utils.ListenAndTriggerMail;
-
 @Configuration
 public class RabbitMQMessageListener {
 	
 	@Autowired
 	private ConnectionFactoryRabbitMQ connectionFactoryRabbitMQ;
 	
-	@Autowired
-	private ListenAndTriggerMail listenAndTriggerMail;
+	//@Autowired
+	//private ListenAndTriggerMail listenAndTriggerMail;
 	
 	@Autowired
 	private Queue Queue;
@@ -41,7 +39,7 @@ public class RabbitMQMessageListener {
 	public MessageListener Listener() {
 		return new MessageListener() {
 			public void onMessage(Message message) {
-				listenAndTriggerMail.message(message);
+				//listenAndTriggerMail.message(message);
 			}
 		};
 	}

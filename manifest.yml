@@ -7,4 +7,3 @@ applications:
   services:
     - bmsMongo
     - bmsMq
-    - bmsSendgrid

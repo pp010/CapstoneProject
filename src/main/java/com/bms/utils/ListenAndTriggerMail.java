@@ -1,4 +1,4 @@
-package com.bms.utils;
+/*package com.bms.utils;
 
 import org.springframework.amqp.core.Message;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,3 +41,4 @@ public class ListenAndTriggerMail {
 	}
 
 }
+*/
