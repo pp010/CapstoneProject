@@ -1,3 +1,4 @@
+set -e -x
 git clone CapstoneProject resource-app
 echo "cloning done"
 echo "About to print pwd1 value -"
