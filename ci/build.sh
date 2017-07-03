@@ -7,6 +7,7 @@ ls
 cd ppTest
 echo "About to print pwd value -"
 echo $(pwd)
+var = $(pwd) 
 #cd resource-app/CapstoneProject
 echo "inside resource-app/CapstoneProject"
 #mvn install
