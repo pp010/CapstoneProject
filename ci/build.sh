@@ -5,7 +5,7 @@ echo "cloning done"
 cd resource-app
 ls
 cd ppTest
-pwd
+echo $(pwd)
 #cd resource-app/CapstoneProject
 echo "inside resource-app/CapstoneProject"
 #mvn install
