@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#git clone ppTest resource-app
+git clone ppTest resource-app
 echo "cloning done"
 cd ppTest
 echo "inside resource-app/CapstoneProject"
