@@ -11,6 +11,6 @@ echo "inside resource-app/CapstoneProject"
 #mvn install
 #mvn install -DskipTests=false
 mvn clean install -e -DskipTests=true || ErrorHandler "Build Failed for test"
-mv CapstoneProject/build/libs/*.jar ../resource-app
+mv ppTest/build/libs/*.jar ../resource-app
 echo "------installation done---------"
 #mvn test
