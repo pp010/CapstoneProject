@@ -7,7 +7,7 @@ image_resource:
     tag: latest
 
 inputs:
-  - name: ppTest
+  - name: CapstoneProject
 
   
 outputs:
@@ -15,4 +15,4 @@ outputs:
   
 run:
  path: sh
- args: ["ppTest/ci/build.sh"]
+ args: ["CapstoneProject/ci/build.sh"]
