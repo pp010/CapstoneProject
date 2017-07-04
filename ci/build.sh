@@ -10,6 +10,7 @@ echo "About to print pwd2 value -"
 echo $(pwd)
 mvn clean install -e -DskipTests=true || ErrorHandler "Build Failed for test"
 echo $(ls -lart)
+sudo chmod o+x target
 cd target
 echo $(ls)
 echo "------installation done---------"
