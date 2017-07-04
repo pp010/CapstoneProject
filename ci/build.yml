@@ -11,7 +11,7 @@ inputs:
 
   
 outputs:
-  - name: resource-app
+  - name: CapstoneProject
   
 run:
  path: sh
