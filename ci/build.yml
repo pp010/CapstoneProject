@@ -13,12 +13,6 @@ inputs:
 outputs:
   - name: resource-app
   
-#run:
- #path: sh
- #args: ["CapstoneProject/ci/build.sh"]
- #params:
- # MAVEN_BASEDIR: resource-app
- 
 run:
-  path: mvn
-  args: ["-f", "CapstoneProject/pom.xml", "-DskipTests=true", "package"]
+ path: sh
+ args: ["CapstoneProject/ci/build.sh"]
