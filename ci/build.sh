@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 git clone CapstoneProject resource-app
 echo "cloning done"
 echo "About to print pwd1 value -"
