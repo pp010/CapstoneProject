@@ -16,3 +16,5 @@ outputs:
 run:
  path: sh
  args: ["CapstoneProject/ci/build.sh"]
+ params:
+  MAVEN_BASEDIR: source-code
