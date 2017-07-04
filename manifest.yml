@@ -3,7 +3,8 @@ applications:
 - name: bmsTest4cicd
   memory: 1G
   instances: 1
-  path: target/BidManagementSystem-0.1.jar
+  buildpack: https://github.com/cloudfoundry/java-buildpack.git
+  path: ./target/BidManagementSystem-0.1.jar
   services:
     - bmsMongo
     - bmsMq
