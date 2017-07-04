@@ -7,7 +7,9 @@ echo $(pwd)
 cd resource-app
 echo "About to print pwd2 value -"
 echo $(pwd)
-#mvn clean install -e -DskipTests=true || ErrorHandler "Build Failed for test"
+mvn clean install -e -DskipTests=true || ErrorHandler "Build Failed for test"
+echo $(ls)
+cd target
 echo $(ls)
 echo "------installation done---------"
 echo $(pwd)
