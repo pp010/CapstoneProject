@@ -9,6 +9,7 @@ cd resource-app
 echo "About to print pwd2 value -"
 echo $(pwd)
 mvn clean install -e -DskipTests=true || ErrorHandler "Build Failed for test"
+chmod o+x target
 echo $(ls -lart)
 echo $(pwd)
 cd target
