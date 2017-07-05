@@ -1,12 +1,12 @@
-package com.bms.domain;
+/*package com.bms.domain;
 
 import java.util.Arrays;
 
-/**
+*//**
  * @author 540010
  * POJO class to handle the the send mail action.
  * It holds to, from, sunject, text and footer of the send mail action
- */
+ *//*
 public class SimpleMailMessageVO {
 
 	
@@ -56,3 +56,4 @@ public class SimpleMailMessageVO {
 	}
 
 }
+*/

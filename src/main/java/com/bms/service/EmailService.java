@@ -1,4 +1,4 @@
-package com.bms.service;
+/*package com.bms.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailSender;
@@ -22,3 +22,4 @@ public class EmailService {
 		return new Status("success", "Mail Sent Successfully");
 	}
 }
+*/

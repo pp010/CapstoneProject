@@ -1,9 +1,9 @@
-package com.bms.domain;
+/*package com.bms.domain;
 
-/**
+*//**
  * @author 540010
  * POJO class to handle status of send mail action
- */
+ *//*
 public class Status {
 
 	@Override
@@ -31,4 +31,4 @@ public class Status {
 	public String getMessage() {
 		return message;
 	}
-}
+}*/
