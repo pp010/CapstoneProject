@@ -12,3 +12,6 @@ applications:
   - ppBmsCircuitBreaker
   env:
     SPRING_PROFILES_ACTIVE: DEV
+
+    
+# cf cs p-config-server standard msConfigServer -c '{ "git": { "password": "myMFRPaj004", "cloneOnStart": true, "label": "R2", "uri": "https://github.com/pp010/CapstoneProject.git", "username": "pp010" } }' 
